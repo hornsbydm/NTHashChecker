@@ -21,7 +21,3 @@ func NewRecord(l string) (r Record) {
 
 	return
 }
-
-func (r Record) isCompromised(q string) bool {
-	return strings.Contains(q, r.NTHash[5:])
-}

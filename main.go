@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -28,7 +29,7 @@ func main() {
 
 		r := NewRecord(s.Text())
 
-		r.IsCompromised = r.isCompromised(queryHash(r.NTHash))
+		r.IsCompromised = strings.Contains(queryHash(r.NTHash), r.NTHash[5:])
 
 		fmt.Printf("User: %v\tIsCompromised: %v\n", r.User, r.IsCompromised)
 
